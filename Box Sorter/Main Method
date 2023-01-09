@@ -1,0 +1,44 @@
+import java.util.Scanner;
+public class BoxSorter {
+	
+	public static void main(String[] args) {
+		Scanner key = new Scanner(System.in);
+		System.out.println("Welcome to the box sorter!\r\n"
+				+ "Enter the information about boxes and I'll sort them!");
+		//Creates array
+		Box[] bo = new Box[5];
+		//Takes in user variables
+		for(var i = 0; i < 5; i++) {
+			System.out.println("Enter the label, length, width, and height (in feet) of box " + (i+1) + ":");
+			String label = key.nextLine();
+			double length = key.nextDouble();
+			key.nextLine();
+			double width = key.nextDouble();
+			key.nextLine();
+			double height = key.nextDouble();
+			key.nextLine();
+			bo[i] = new Box(label, length, width, height);
+		}
+		
+		//sort the values of the array one value at a time
+		for(int i = 0; i < bo.length; i++) {
+			double smallest = bo[i].getVolume();
+			int minIndex = i;
+			for(int j = i+1; j < bo.length; j++) {
+				if(bo[j].getVolume() < smallest) {
+					smallest = bo[j].getVolume();
+					minIndex = j;
+				}
+				if(smallest < bo[i].getVolume()) {
+					Box temp = bo[i];
+					bo[i] = bo[minIndex];
+					bo[minIndex] = temp;
+				}
+			}
+		}
+		//Prints out user variables
+		for(var i = 0; i < bo.length; i++) {
+			System.out.println(bo[i].toString());
+		}
+	}
+}
