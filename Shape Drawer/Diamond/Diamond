@@ -1,0 +1,75 @@
+public class Diamond extends Shapes implements DiamondInterface {
+	private int width;
+	
+	public Diamond() {
+		super();
+		this.width = 0;
+	}
+	
+	public Diamond(int xOffset, int xWidth) {
+		super(xOffset);
+		this.setWidth(xWidth);
+	}
+	
+	public int getWidth() {
+		return this.width;
+	}
+	
+	public void setWidth(int xWidth) {
+		if(xWidth > 0 && xWidth % 2 == 1) {
+			this.width = xWidth;
+		}
+	}
+	
+	public void drawHere() {
+		drawTop();
+		drawBottom();
+	}
+	
+	public void drawTop() {
+		int center = this.width/2;
+		int start = this.getOffset() + center;
+		this.skipSpaces(start);
+		System.out.println("*");
+		int insideWidth = 1;
+		int count = center - 1;
+		for(int i = 0; i < count; i++) {
+			start--;
+			this.skipSpaces(start);
+			System.out.print("*");
+			this.skipSpaces(insideWidth);
+			System.out.println("*");
+			insideWidth += 2;
+		}
+		this.skipSpaces(this.getOffset());
+		System.out.print("*");
+		this.skipSpaces(insideWidth);
+		System.out.print("*");
+		System.out.println();
+	}
+	
+	public void drawBottom() {
+		int center = this.width/2;
+		int num = this.width / 3;
+		int start = this.getOffset() + center - num;
+		int end = this.getOffset() + center;
+		int insideWidth = this.width-2;
+		int count = center - 1;
+		for(int i = 0; i < count; i++) {
+			insideWidth -= 2;
+			this.skipSpaces(start);
+			System.out.print("*");
+			this.skipSpaces(insideWidth);
+			System.out.println("*");
+			start++;
+		}
+		this.skipSpaces(end);
+		System.out.println("*");
+	}
+	
+	private void skipSpaces(int spaces) {
+		for(int i = 0; i < spaces; i++) {
+			System.out.print(" ");
+		}
+	}
+}
