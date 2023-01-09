@@ -20,6 +20,6 @@ public class DiamondDrawer {
 		else
 		{	
 			System.out.println("Invalid input entered! Goodbye!");
-		}
+		}	
 	}
 }
