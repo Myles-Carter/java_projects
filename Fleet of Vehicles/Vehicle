@@ -1,0 +1,58 @@
+public class Vehicle {
+	//Private Variables
+	private String manuName;
+	private int cylinders;
+	private String ownersName;
+	
+	//Default constructor
+	public Vehicle() {
+		this.manuName = "Honda";
+		this.cylinders = 6;
+		this.ownersName = "Myles";
+	}
+	
+	//Parameterized Constructor
+	public Vehicle(String xManuName, int xCylinders, String xOwnersName) {
+		this.setManuName(xManuName);
+		this.setCylinders(xCylinders);
+		this.setOwnersName(xOwnersName);
+	}
+	
+	//Accessors
+	public String getManuName() {
+		return this.manuName;
+	}
+	public int getCylinders() {
+		return this.cylinders;
+	}
+	public String getOwnersName() {
+		return this.ownersName;
+	}
+	
+	//Mutators
+	public void setManuName(String xManuName) {
+		this.manuName = xManuName;
+	}
+	public void setCylinders(int xCylinders) {
+		if(xCylinders > 0) {
+			this.cylinders = xCylinders;
+		}else {
+			System.out.println("Invalid input for cylinders");
+		}
+		
+	}
+	public void setOwnersName(String xOwnersName) {
+		this.ownersName = xOwnersName;
+	}
+	
+	//Methods
+	public boolean equals(Vehicle aV) {
+		return this.manuName.equalsIgnoreCase(aV.getManuName())
+				&& this.cylinders == aV.getCylinders()
+				&& this.ownersName.equalsIgnoreCase(aV.getOwnersName());
+	}
+	
+	public String toString() {
+		return "Manufactor's Name: " + this.manuName + "\nNumber of Cyliners: " + cylinders + "\nOwner's Name: " + ownersName;
+	}
+}
