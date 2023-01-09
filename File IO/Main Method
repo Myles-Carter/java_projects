@@ -1,0 +1,38 @@
+import java.util.Scanner;
+import java.io.*;
+import java.util.Scanner;
+
+public class BasicFileIO {
+
+	public static void main(String[] args) {
+		try {
+			//writing to a file
+			Scanner key = new Scanner(System.in);
+			System.out.println("Standard write out to a file");
+			//True adds more text to the already existing files, false deletes the old texts and creates new text
+			PrintWriter output = new PrintWriter(new FileOutputStream("file01.txt", true));
+			System.out.println("Enter 3 lines of text: ");
+			
+			//receiving input values
+			for(int i = 0; i < 3; i ++) {
+				output.println(key.nextLine());
+				
+			}
+			output.close();
+			key.close();
+			
+			//Reading from a file
+			Scanner fileScanner = new Scanner(new File("file01.txt"));
+			
+			//Print the text file
+			while(fileScanner.hasNextLine()) {
+				System.out.println(fileScanner.nextLine());
+			}
+			fileScanner.close();
+			
+		}
+		catch(IOException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+}
