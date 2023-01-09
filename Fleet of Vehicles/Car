@@ -1,0 +1,52 @@
+public class Car extends Vehicle{
+	//Private Variables
+	private double mileage;
+	private int passengers;
+	
+	//default Constructor
+	public Car() {
+		super();
+		this.mileage = 100;
+		this.passengers = 1;
+	}
+	
+	//Parameterized Constructor
+	public Car(String xManuName, int xCylinders, String xOwnersName, double xMileage, int xPassengers) {
+		super(xManuName, xCylinders, xOwnersName);
+		this.setMileage(xMileage);
+		this.setPassengers(xPassengers);
+	}
+	
+	//Accessors
+	public double getMileage() {
+		return this.mileage;
+	}
+	public int getPassengers() {
+		return this.passengers;
+	}
+	
+	//Mutators
+	public void setMileage(double xMileage) {
+		if(xMileage > 0) {
+			this.mileage = xMileage;
+		}else {
+			System.out.println("Invalid value for mileage");
+		}
+	}
+	public void setPassengers(int xPassengers) {
+		if(xPassengers > 0) {
+			this.passengers = xPassengers;
+		}else {
+			System.out.println("Invalid value for passengers");
+		}
+	}
+	
+	//Methods
+	public boolean equals(Car aV) {
+		return super.equals(aV) && this.mileage == aV.getMileage() && this.passengers == aV.getPassengers();
+	}
+	
+	public String toString() {
+		return super.toString() + "\nMileage: " + this.mileage + "\nPassengers: " + this.passengers;
+	}
+}
