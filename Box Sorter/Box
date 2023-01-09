@@ -1,0 +1,73 @@
+public class Box {
+	//Private Variables
+	private String label;
+	private double length;
+	private double width;
+	private double height;
+	
+	//Default constructor
+	public Box() {
+		this.label = "Box";
+		this.length = 0;
+		this.width = 0;
+		this.height = 0;
+	}
+	
+	//Parameterized Constructor
+	public Box(String xLabel, double xLength, double xWidth, double xHeight) {
+		this.setLabel(xLabel);
+		this.setLength(xLength);
+		this.setWidth(xWidth);
+		this.setHeight(xHeight);
+	}
+	
+	//Accessors
+	public String getLabel() {
+		return this.label;
+	}
+	public double getLength() {
+		return this.length;
+	}
+	public double getWidth() {
+		return this.width;
+	}
+	public double getHeight() {
+		return this.height;
+	}
+	
+	//Mutators
+	public void setLabel(String xLabel) {
+		this.label = xLabel;
+	}
+	public void setLength(double xLength) {
+		if(xLength > 0) {
+			this.length = xLength;
+		}else {
+			System.out.println("Invalid input for length.");
+		}
+	}
+	public void setWidth(double xWidth) {
+		if(xWidth > 0) {
+			this.width = xWidth;
+		}else {
+			System.out.println("Invalid input for width.");
+		}
+	}
+	public void setHeight(double xHeight) {
+		if(xHeight > 0) {
+			this.height = xHeight;
+		}else {
+			System.out.println("Invalid input for height.");
+		}
+	}
+	
+	//Methods
+	public double getVolume() {
+		//Volume is length*width*height
+		return this.length * this.width * this.height;
+	}
+	
+	public String toString() {
+		return "Box label: " + this.label + "		Volume: " + getVolume() + " cubic ft";
+	}
+}
