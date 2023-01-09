@@ -1,0 +1,4 @@
+public interface DiamondInterface extends ShapesInterface {
+	public void setWidth(int xWidth); 
+	public int getWidth();
+}
