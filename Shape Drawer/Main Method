@@ -1,0 +1,15 @@
+public class ShapesDemo {
+
+	public static void main(String[] args) {
+		//Polymorphism: OOP principle (Other 2 are inheritance and encapsulation)
+		Shapes[] sh = new Shapes[3];
+		
+		sh[0] = new Rectangle(2, 5, 15);
+		sh[1] = new Triangle(2,7);
+		sh[2] = new Triangle(10,19);
+		
+		for(int i = 0; i < sh.length; i++) {
+			sh[i].drawAt(i);
+		}
+	}
+}
