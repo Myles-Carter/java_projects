@@ -1,0 +1,4 @@
+public interface TriangleInterface extends ShapesInterface{
+	public void setBase(int xBase);
+	public int getBase();
+}
